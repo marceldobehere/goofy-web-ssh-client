@@ -1,0 +1,23 @@
+body {
+    background-color: #101020;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+#terminal {
+    width:740px;
+    height: 450px;
+    margin: auto;
+}
+
+#control-panel 
+{
+    margin: auto; 
+    width: 80vw;
+    text-align: center;
+}

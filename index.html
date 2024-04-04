@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goofy Websocket SSH</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./libs/xterm/xterm.css" />
+</head>
+
+<body>
+    <h1>Goofy Websocket SSH</h1>
+    <div id="terminal"></div>
+    <div id="control-panel">
+        <input type='text' id='url' value='ws://ssh.marceldobehere.com' />
+        <input type='button' onclick='doconn()' id='connect' value='Connect'/>
+    </div>
+
+    <script src="./libs/xterm/xterm.min.js"></script>
+    <script src="./libs/xterm/xterm-addon-fit.min.js"></script>
+    <script src="./libs/libssh2/libssh2.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
