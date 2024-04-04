@@ -7,6 +7,8 @@ Meant to be used as a web alternative for the [Goofy Websocket SSH Client](https
 
 You can statically host the site or just download and open it locally.
 
+NOTE: If you want to be able to access normal (`ws://`) websockets, you **cannot** host this site using https, because it will be blocked! If it is hosted on https it will only work with secure websockets (`wss://`).
+
 
 ## Screenshot
 ![Example](./images/logged%20in.PNG)
