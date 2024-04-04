@@ -1,6 +1,7 @@
 body {
     background-color: #101020;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #E0E0F0;
 }
 
 h1 {
@@ -20,4 +21,16 @@ h1 {
     margin: auto; 
     width: 80vw;
     text-align: center;
+}
+
+#url 
+{
+    width: 200px;
+}
+
+#connect
+{
+    width: 80px;
+    background-color: #202030;
+    color: #E0E0F0;
 }

@@ -9,17 +9,8 @@ term.prompt = () => {
 };
 
 term.onData(e => {
-    console.log(e);
-    if (e == '\r')
-    {
-        //term.prompt();
-    }
-    else if (e == "[15~")
-    {
+    if (e == "[15~")
         window.reload();
-    }
-    else
-        ;//term.write(e);
 });
 
 
@@ -53,11 +44,17 @@ function doconn()
 	}
 	else {
 		const url = document.getElementById('url').value;
-		ws = new WebSocket(url);
+		try {
+            ws = new WebSocket(url);
+        }
+        catch (e)
+        {
+            return term.write(`Invalid WS URL \"${url}\"!\r\n`);
+        }
 
 		session = libssh2.createSESSION(ws, (rc, err)=> {
 			if(rc !== libssh2.ERROR.NONE) {
-				return term.write(`createSESSION error ${rc} ${msg}`);
+				return term.write(`createSESSION error ${rc} ${msg}\r\n`);
 			}
 
 			term.write('stream connected\r\n');
@@ -148,11 +145,16 @@ function dologin()
 	});
 }
 
+let chConnected = false;
 function doshell() 
 {
-	term.onData((c) => {
-		ch.send(c);
-	});
+    if (!chConnected)
+    {
+        chConnected = true;
+        term.onData((c) => {
+            ch.send(c);
+        });
+    }
 
 	session.CHANNEL((rc, _ch) => {
 		if(rc !== libssh2.ERROR.NONE) {
