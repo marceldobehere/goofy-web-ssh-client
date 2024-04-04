@@ -49,7 +49,7 @@ function doconn()
         }
         catch (e)
         {
-            return term.write(`Invalid WS URL \"${url}\"!\r\n`);
+            return term.write(`WS URL Error for \"${url}\": ${e.message}!\r\n`);
         }
 
 		session = libssh2.createSESSION(ws, (rc, err)=> {
